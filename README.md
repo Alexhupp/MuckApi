@@ -1,5 +1,5 @@
 # Muck Chat Command Api
-A Working Custom Chat Command Api For Muck
+A Working (Currently only chat commands) API for muck
 
 # How To Use
 to use it create a method of what you want to run useing this template for your method  
