@@ -16,10 +16,10 @@ namespace AlexMuckApi.API
         {
             foreach (var item in Main.CustomCommands)
             {
-                if (item.Key == message.Substring(1).Split(' ')[1])
+                if (item.Key == message.Substring(1).Split(' ')[0])
                 {
-                    Debug.Log("Command Found" + message.Substring(1).Split(' ')[1]);
-                    item.Value.DynamicInvoke(message);
+                    Debug.Log("Command Found" + message.Substring(1).Split(' ')[0]);
+                    item.Value.DynamicInvoke(message.ToString());
                 }
             }
             return false;

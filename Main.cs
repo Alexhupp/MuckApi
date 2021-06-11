@@ -39,10 +39,14 @@ namespace AlexMuckApi
         public void Start()
         {
             harmony.PatchAll(assembly);
-            AddChatCommand("kill", new Func<string, bool>(API.ChatCommands.kill));
-            AddChatCommand("ping", new Func<string, bool>(API.ChatCommands.ping));
-            AddChatCommand("debug", new Func<string, bool>(API.ChatCommands.debug));
-            AddChatCommand("seed", new Func<string, bool>(API.ChatCommands.seed));
+            var kill = new Func<string, bool>(API.ChatCommands.kill);
+            var ping = new Func<string, bool>(API.ChatCommands.ping);
+            var debug = new Func<string, bool>(API.ChatCommands.debug);
+            var seed = new Func<string, bool>(API.ChatCommands.seed);
+            AddChatCommand("kill", kill);
+            AddChatCommand("ping", ping);
+            AddChatCommand("debug", debug);
+            AddChatCommand("seed", seed);
         }
         public static bool AddChatCommand(string name, Func<string, bool> function)
         {
