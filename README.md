@@ -11,11 +11,11 @@ public static bool Template(string message)
   //Code Goes Here
   return true;
 }`
-then in your Main.cs define under 
-```[BepInPlugin(GUID, MODNAME, VERSION)]```
+then in your Main.cs define undeer
+`[BepInPlugin(GUID, MODNAME, VERSION)]`
 add 
-```[BepInDependency("YaBoiAlex_MuckApi")]```
+`[BepInDependency("YaBoiAlex_MuckApi")]`
 to add commands to be registered in your main.cs under Start() do the following
-```
+`
 var <CommandName> = new Func<string, bool>(<Method>);
 AlexMuckApi.Main.AddChatCommand("<Command In Chat>, <CommandName>);`
