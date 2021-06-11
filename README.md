@@ -2,7 +2,7 @@
 A Working Custom Chat Command Api For Muck
 
 # How To Use
-to use it create a method of what you want to run useing this template for your method
+to use it create a method of what you want to run useing this template for your method /n
 `
 public static bool Template(string message)
 {
