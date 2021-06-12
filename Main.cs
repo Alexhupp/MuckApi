@@ -17,7 +17,7 @@ namespace AlexMuckApi
             MODNAME = "MuckApi",
             AUTHOR = "YaBoiAlex",
             GUID = AUTHOR + "_" + MODNAME,
-            VERSION = "1.0";
+            VERSION = "1.0.1";
         internal static Dictionary<string, Func<string,bool>> CustomCommands = new Dictionary<string, Func<string, bool>> { };
         internal readonly ManualLogSource log;
         internal readonly Harmony harmony;

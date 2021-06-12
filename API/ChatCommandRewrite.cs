@@ -22,6 +22,7 @@ namespace AlexMuckApi.API
                     item.Value.DynamicInvoke(message.ToString());
                 }
             }
+            ChatBox.Instance.ClearMessage();
             return false;
         }
     }
