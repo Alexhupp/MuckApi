@@ -16,7 +16,7 @@ namespace AlexMuckApi.API
         {
             foreach (var item in Main.CustomCommands)
             {
-                if (item.Key == message.Substring(1).Split(' ')[0])
+                if (item.Key == message.Substring(1).Split(' ')[0].ToLower())
                 {
                     Debug.Log("Command Found" + message.Substring(1).Split(' ')[0]);
                     item.Value.DynamicInvoke(message.ToString());
