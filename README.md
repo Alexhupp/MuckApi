@@ -22,6 +22,8 @@ add
 ```
 to add commands to be registered in your main.cs under Start() do the following  
 ```csharp
-var <CommandName> = new Func<string, bool>(<Method>);
-AlexMuckApi.Main.AddChatCommand("<Command In Chat>, <CommandName>);
+AlexMuckApi.Main.AddChatCommand("<Command In Chat>", new Func<string, bool>(<Method>));
 ```
+or
+```csharp
+AlexMuckApi.Main.AddChatCommand("<Command In Chat>","<Command Description>",new Func<string, bool>(<Method>));
