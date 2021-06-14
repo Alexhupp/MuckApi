@@ -1,4 +1,4 @@
-# Muck Chat Command Api
+# Muck Api
 A Working (Currently only chat commands) API for muck
 
 # How To Use
