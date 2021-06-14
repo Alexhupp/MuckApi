@@ -18,12 +18,12 @@ then in your Main.cs define undeer
 ```
 add  
 ```csharp
-[BepInDependency("YaBoiAlex_MuckApi")]  
+[BepInDependency("MuckApiGithub_MuckApi")]  
 ```
 to add commands to be registered in your main.cs under Start() do the following  
 ```csharp
-AlexMuckApi.Main.AddChatCommand("<Command In Chat>", new Func<string, bool>(<Method>));
+MuckApi.Main.AddChatCommand("<Command In Chat>", new Func<string, bool>(<Method>));
 ```
 or
 ```csharp
-AlexMuckApi.Main.AddChatCommand("<Command In Chat>","<Command Description>",new Func<string, bool>(<Method>));
+MuckApi.Main.AddChatCommand("<Command In Chat>","<Command Description>",new Func<string, bool>(<Method>));
