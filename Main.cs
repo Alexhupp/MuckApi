@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace AlexMuckApi
+namespace MuckApi
 {   
     [BepInPlugin(GUID, MODNAME, VERSION)]
     public class Main : BaseUnityPlugin
@@ -16,7 +16,7 @@ namespace AlexMuckApi
         #region[Declarations]
         public const string
             MODNAME = "MuckApi",
-            AUTHOR = "YaBoiAlex",
+            AUTHOR = "MuckApiGithub",
             GUID = AUTHOR + "_" + MODNAME,
             VERSION = "1.0.1";
 
