@@ -24,7 +24,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="API\ItemAPI.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="API\ChatCommandRewrite.cs" />
     <Compile Include="API\ChatCommands.cs" />

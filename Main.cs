@@ -82,7 +82,7 @@ namespace MuckApi
 
             for (int i = 0; i < assets.Length; i++)
             {
-                Main.instance.items.Add(assets[i]);
+                items.Add(assets[i]);
             }
         }
 
