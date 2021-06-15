@@ -30,7 +30,6 @@
     <Compile Include="API\ChatCommands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Package\icon.png" />
-    <EmbeddedResource Include="fake_sword" />
     <None Include="GameDir.targets" />
     <None Include="Package\manifest.json" />
     <None Include="Package\README.md" />
