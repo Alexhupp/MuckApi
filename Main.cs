@@ -52,6 +52,15 @@ namespace MuckApi
             AddChatCommand("ping","Returns Pong", new Func<string, bool>(API.ChatCommands.ping));
             AddChatCommand("debug","Shows Debug information such as fps, ping, packets, etc...", new Func<string, bool>(API.ChatCommands.debug));
             AddChatCommand("seed", "Shows the current run's Seed", new Func<string, bool>(API.ChatCommands.seed));
+            
+            Debug.Log("[MuckAPI] Init CustomItems");
+
+            ItemManager.Instance.allScriptableItems = ItemManager.Instance.allScriptableItems.Concat(items).ToArray();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ItemManager.Instance.allItems.Add(ItemManager.Instance.allItems.Count + (i + 1), items[i]);
+            }
 
         }
         public static bool AddChatCommand(string name, Func<string,bool> function)
