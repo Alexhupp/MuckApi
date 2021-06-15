@@ -45,4 +45,3 @@ or
 ```csharp
 MuckApi.Main.AddChatCommand("<Command In Chat>", "<Command Description>", new Func<string, bool>(<Method>));
 ```
-
