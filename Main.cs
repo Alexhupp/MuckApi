@@ -23,6 +23,7 @@ namespace MuckApi
 
         internal static Dictionary<string, Func<string,bool>> CustomCommands = new Dictionary<string, Func<string, bool>> { };
         internal static Dictionary<string, string> CommandInfo = new Dictionary<string, string> { };
+        internal static List<InventoryItem> items = new List<InventoryItem>();
         internal readonly ManualLogSource log;
         internal readonly Harmony harmony;
         internal readonly Assembly assembly;
@@ -41,7 +42,6 @@ namespace MuckApi
         }
 
         public static Main instance;
-        public List<InventoryItem> items = new List<InventoryItem>();
 
         public void Start()
         {
