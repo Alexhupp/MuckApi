@@ -1,16 +1,11 @@
 # Muck Api
-A Working (Currently only chat commands) API for muck
+A Working API for all things muck
 
-# How To Use
-to use it create a method of what you want to run useing this template for your method  
-```csharp
-public static bool Template(string message)
-{
-  var MessageArgs = message.Substring(1).Split(' ');
-  ChatBox Chat = ChatBox.Instance;
-  //Code Goes Here
-  return true;
-}  
+# Features
+> Commands
+> Custom Items
+
+# Add as a Dependency
 ```
 then in your Main.cs define undeer  
 ```csharp
@@ -20,6 +15,24 @@ add
 ```csharp
 [BepInDependency("MuckApiGithub_MuckApi")]  
 ```
+
+# Custom Items: How To Use
+Create a unity asset bundle then drag it into your project then you can do this
+```csharp
+  LoadAllItemsFromResoruce("asset_bundle_filename")
+```
+this create a item for each scriptable object in that asset bundle
+
+# Commands: How To Use
+to use it create a method of what you want to run useing this template for your method  
+```csharp
+public static bool Template(string message)
+{
+  var MessageArgs = message.Substring(1).Split(' ');
+  ChatBox Chat = ChatBox.Instance;
+  //Code Goes Here
+  return true;
+}  
 to add commands to be registered in your main.cs under Start() do the following  
 ```csharp
 MuckApi.Main.AddChatCommand("<Command In Chat>", new Func<string, bool>(<Method>));
