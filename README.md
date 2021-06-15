@@ -21,7 +21,10 @@ Create a unity asset bundle then drag it into your project then you can do this
 ```csharp
   LoadAllItemsFromResoruce("asset_bundle_filename")
 ```
-this create a item for each scriptable object in that asset bundle
+this creates an item for each scriptable object in that asset bundle
+
+## How To Create a Asset Bundle:
+comming soon
 
 # Commands: How To Use
 to use it create a method of what you want to run useing this template for your method  
