@@ -2,6 +2,7 @@ using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -39,14 +40,19 @@ namespace MuckApi
             modFolder = Path.GetDirectoryName(assembly.Location);
         }
 
+        public static Main instance;
+        public List<InventoryItem> items = new List<InventoryItem>();
+
         public void Start()
         {
+            instance = this;
             harmony.PatchAll(assembly);
             AddChatCommand("commands", "Shows a list of commands and their descriptions", new Func<string, bool>(API.ChatCommands.help));
             AddChatCommand("kill","Instantly kills the executing player", new Func<string, bool>(API.ChatCommands.kill));
             AddChatCommand("ping","Returns Pong", new Func<string, bool>(API.ChatCommands.ping));
             AddChatCommand("debug","Shows Debug information such as fps, ping, packets, etc...", new Func<string, bool>(API.ChatCommands.debug));
-            AddChatCommand("seed","Shows the current run's Seed", new Func<string, bool>(API.ChatCommands.seed));
+            AddChatCommand("seed", "Shows the current run's Seed", new Func<string, bool>(API.ChatCommands.seed));
+
         }
         public static bool AddChatCommand(string name, Func<string,bool> function)
         {
@@ -60,5 +66,28 @@ namespace MuckApi
             CommandInfo.Add(name, description);
             return true;
         }
+        public static void LoadAllItemsFromResoruce(string fileName)
+        {
+            var asset = GetAssetBundleFromResources(fileName);
+            var assets = asset.LoadAllAssets<InventoryItem>();
+
+            for (int i = 0; i < assets.Length; i++)
+            {
+                Main.instance.items.Add(assets[i]);
+            }
+        }
+
+        public static AssetBundle GetAssetBundleFromResources(string fileName)
+        {
+            var execAssembly = Assembly.GetExecutingAssembly();
+
+            var resourceName = execAssembly.GetManifestResourceNames().Single(str => str.EndsWith(fileName));
+
+            using (var stream = execAssembly.GetManifestResourceStream(resourceName))
+            {
+                return AssetBundle.LoadFromStream(stream);
+            }
+        }
+
     }
 }
