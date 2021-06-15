@@ -23,7 +23,7 @@ namespace MuckApi
 
         internal static Dictionary<string, Func<string,bool>> CustomCommands = new Dictionary<string, Func<string, bool>> { };
         internal static Dictionary<string, string> CommandInfo = new Dictionary<string, string> { };
-        internal static List<InventoryItem> items = new List<InventoryItem>();
+        //internal static InventoryItem[] items;
         internal readonly ManualLogSource log;
         internal readonly Harmony harmony;
         internal readonly Assembly assembly;
@@ -52,16 +52,6 @@ namespace MuckApi
             AddChatCommand("ping","Returns Pong", new Func<string, bool>(API.ChatCommands.ping));
             AddChatCommand("debug","Shows Debug information such as fps, ping, packets, etc...", new Func<string, bool>(API.ChatCommands.debug));
             AddChatCommand("seed", "Shows the current run's Seed", new Func<string, bool>(API.ChatCommands.seed));
-            
-            Debug.Log("[MuckAPI] Init CustomItems");
-
-            ItemManager.Instance.allScriptableItems = ItemManager.Instance.allScriptableItems.Concat(items).ToArray();
-
-            for (int i = 0; i < items.Count; i++)
-            {
-                ItemManager.Instance.allItems.Add(ItemManager.Instance.allItems.Count + (i + 1), items[i]);
-            }
-
         }
         public static bool AddChatCommand(string name, Func<string,bool> function)
         {
@@ -77,13 +67,18 @@ namespace MuckApi
         }
         public static void LoadAllItemsFromResoruce(string fileName)
         {
-            var asset = GetAssetBundleFromResources(fileName);
-            var assets = asset.LoadAllAssets<InventoryItem>();
+            Debug.Log("[MuckAPI] Init CustomItems");
 
-            for (int i = 0; i < assets.Length; i++)
+            var asset = GetAssetBundleFromResources(fileName);
+            var items = asset.LoadAllAssets<InventoryItem>();
+
+            for (int i = 0; i < items.Length; i++)
             {
-                Main.instance.items.Add(assets[i]);
+                items[i].id = i + ItemManager.Instance.allScriptableItems.Length;
+                ItemManager.Instance.allItems.Add(items[i].id, items[i]);
             }
+
+            ItemManager.Instance.allScriptableItems = ItemManager.Instance.allScriptableItems.Concat(items).ToArray();
         }
 
         public static AssetBundle GetAssetBundleFromResources(string fileName)
