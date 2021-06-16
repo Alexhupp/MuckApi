@@ -65,11 +65,11 @@ namespace MuckApi
             CommandInfo.Add(name, description);
             return true;
         }
-        public static void LoadAllItemsFromResoruce(string fileName)
+        public static void LoadAllItemsFromResoruce(string fileName, Assembly loader)
         {
-            Debug.Log("[MuckAPI] Init CustomItems");
+            Debug.Log("[MuckAPI] CustomItem Asset Load");
 
-            var asset = GetAssetBundleFromResources(fileName);
+            var asset = GetAssetBundleFromResources(fileName, loader);
             var items = asset.LoadAllAssets<InventoryItem>();
 
             for (int i = 0; i < items.Length; i++)
@@ -81,7 +81,7 @@ namespace MuckApi
             ItemManager.Instance.allScriptableItems = ItemManager.Instance.allScriptableItems.Concat(items).ToArray();
         }
 
-        public static AssetBundle GetAssetBundleFromResources(string fileName)
+        public static AssetBundle GetAssetBundleFromResources(string fileName, Assembly loader)
         {
             var execAssembly = Assembly.GetExecutingAssembly();
 
