@@ -25,17 +25,7 @@ namespace MuckApi.API
 
         static void Prefix(OtherInput __instance)
         {
-            Debug.Log("test");
             Main.currentCraftingState = __instance.craftingState;
-        }
-    }
-
-    [HarmonyPatch(typeof(ChatBox), "SendMessage")]
-    class ItemAPI3
-    {
-        static void Prefix()
-        {
-            Debug.Log("test");
         }
     }
 
@@ -44,7 +34,6 @@ namespace MuckApi.API
     {
         public static void Prefix(int i)
         {
-            Debug.Log("test" + i);
             Main.currentTab = i;
         }
     }
