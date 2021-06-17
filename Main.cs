@@ -82,7 +82,7 @@ namespace MuckApi
         }
         public static InventoryItem[] LoadAllItemsFromResoruce(string fileName, Assembly loader)
         {
-            Debug.Log("[MuckAPI] Init CustomItems");
+            Debug.Log("[MuckAPI] CustomItem Asset Load");
 
             var asset = GetAssetBundleFromResources(fileName, loader);
             var items = asset.LoadAllAssets<InventoryItem>();

@@ -19,7 +19,7 @@ add
 # Custom Items: How To Use
 Create a unity asset bundle then drag it into your project then you can do this
 ```csharp
-  MuckApi.Main.LoadAllItemsFromResoruce("asset_bundle_filename", Assembly.GetExecutingAssembly())
+MuckApi.Main.LoadAllItemsFromResoruce("asset_bundle_filename", Assembly.GetExecutingAssembly())
 ```
 this creates an item for each scriptable object in that asset bundle
 
