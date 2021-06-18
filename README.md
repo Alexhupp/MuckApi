@@ -45,3 +45,7 @@ or
 ```csharp
 MuckApi.Main.AddChatCommand("<Command In Chat>", "<Command Description>", new Func<string, bool>(<Method>));
 ```
+# Contributions And Credits
+- Alex (Original Creator & Chat Command API)
+- Mr.Enxo (Item Api & Custom Recipes(Wip))
+- Studzy (General Code fixing)
