@@ -1,5 +1,8 @@
 obj/
 Package/
 
+# Don't include copyrighted dlls that would be bad
+Reference/
+
 # JetBrains Rider
 .idea/
